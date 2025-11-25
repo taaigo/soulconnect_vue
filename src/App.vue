@@ -4,9 +4,8 @@
       <div class="container header-inner">
         <h1 class="logo">SoulConnect</h1>
         <nav class="nav">
-          <a href="#matches">Matches</a>
-          <a href="#stories">Stories</a>
-          <a href="#login">Login</a>
+          <a href="/matches">Matches</a>
+          <a href="/login">Login</a>
         </nav>
       </div>
     </header>
