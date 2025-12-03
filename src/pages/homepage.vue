@@ -1,34 +1,30 @@
 <template>
   <div class="homepage">
+
+    <!-- HERO SECTION -->
     <section class="hero">
-      <div class="container hero-inner">
-        <div class="text">
-          <h2>Vind jouw perfecte match</h2>
-          <p>Maak een profiel aan, ontdek nieuwe mensen en vind echte connecties.</p>
+      <div class="hero-inner">
+
+        <!-- TEXT LEFT -->
+        <div class="hero-text">
+          <h1>
+            <span class="line1">Vind liefde</span><br />
+            <span class="line2">op een nieuwe manier</span>
+          </h1>
+
+          <p class="subtext">
+            SoulConnect helpt je verbinden met mensen die écht bij je passen.
+            Swipe, match en chat — veilig, snel en super simpel.
+          </p>
+
           <div class="cta-row">
-            <button class="btn primary" @click="goLogin">Account aanmaken</button>
-            <button class="btn ghost" @click="goSwipe">Bekijk singles</button>
+            <button class="btn primary" @click="goLogin">Inloggen</button>
+            <button class="btn ghost" @click="goRegister">Account aanmaken</button>
           </div>
         </div>
-        <div class="hero-image">
-          <div class="img-placeholder">foto</div>
-        </div>
       </div>
     </section>
 
-    <section id="matches" class="matches container">
-      <h3>Populaire Matches</h3>
-      <div class="cards">
-        <div class="card"> <strong>Sara, 22</strong> <p>Houdt van reizen & muziek</p> </div>
-        <div class="card"> <strong>Mike, 24</strong> <p>Sportief & spontaan</p> </div>
-        <div class="card"> <strong>Lina, 21</strong> <p>Kunst & fotografie</p> </div>
-      </div>
-    </section>
-
-    <section id="stories" class="stories container">
-      <h3>Succesverhalen</h3>
-      <p class="muted">Lees hoe anderen hun liefde hebben gevonden via SoulConnect.</p>
-    </section>
   </div>
 </template>
 
@@ -36,35 +32,106 @@
 import { useRouter } from "vue-router";
 const router = useRouter();
 
-function goLogin() {
-  router.push("/login");
-}
-
-function goSwipe() {
-  router.push("/swipe");
-}
+const goLogin = () => router.push("/login");
+const goRegister = () => router.push("/register");
 </script>
 
 <style scoped>
-:root{
-  --accent: #e6397f;
-  --muted: #6b7280;
+/* ---- GRADIENT BACKGROUND ---- */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 80px 40px;
+  background: linear-gradient(
+    115deg,
+    #ff3ea5,
+    #e359f9,
+    #8b63f6,
+    #4b7dfd
+  );
+  background-size: 200% 200%;
+  animation: gradientMove 10s ease infinite;
 }
-.hero{background:linear-gradient(180deg,#fff0f7,white);padding:3rem 0}
-.hero-inner{display:flex;gap:2rem;align-items:center}
-.text h2{margin:0 0 .5rem;font-size:2rem}
-.text p{margin:0 0 1rem;color:var(--muted)}
-.cta-row{display:flex;gap:.75rem}
-.btn{padding:.65rem 1.1rem;border-radius:8px;border:1px solid transparent;cursor:pointer}
-.btn.primary{background:var(--accent);color:white}
-.btn.ghost{background:white;border-color:#ddd;color:var(--muted)}
-.hero-image{flex:1;display:flex;justify-content:center}
-.img-placeholder{width:200px;height:200px;border-radius:16px;border:2px dashed #ffc1d7;display:flex;align-items:center;justify-content:center;color:var(--muted)}
-.matches, .stories{padding:2rem 0}
-.cards{display:flex;gap:1rem;flex-wrap:wrap}
-.card{flex:1 1 200px;padding:1rem;border:1px solid var(--accent);background:white;border-radius:10px}
-.muted{color:var(--muted)}
-@media(max-width:800px){
-  .hero-inner{flex-direction:column;text-align:center}
+
+/* Sexy moving gradient */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ---- LAYOUT ---- */
+.hero-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4rem;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ---- LEFT SIDE TEXT ---- */
+.hero-text {
+  max-width: 600px;
+  color: white;
+}
+
+.hero-text h1 {
+  font-size: 4rem;
+  line-height: 1.1;
+  font-weight: 800;
+}
+
+.hero-text .line1 {
+  color: white;
+}
+.hero-text .line2 {
+  color: #ffe3ff;
+}
+
+.subtext {
+  font-size: 1.25rem;
+  margin: 1.5rem 0;
+  max-width: 500px;
+  opacity: 0.9;
+}
+
+/* ---- CTA BUTTONS ---- */
+.cta-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 14px 26px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.btn.primary {
+  background: white;
+  color: #e359f9;
+}
+
+.btn.primary:hover {
+  background: #f7f7f7;
+  transform: translateY(-3px);
+}
+
+.btn.ghost {
+  background: rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.4);
+  color: white;
+}
+
+.btn.ghost:hover {
+  background: rgba(255,255,255,0.35);
+  transform: translateY(-3px);
 }
 </style>
