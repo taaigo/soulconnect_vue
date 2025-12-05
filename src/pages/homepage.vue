@@ -1,31 +1,137 @@
-<script setup lang="ts">
-const bg = "/love.png";
-</script>
-
 <template>
-    <div class="side-card">
-      <h2>Titel</h2>
-      <p>Ben jij klaar om iemand te ontmoeten die écht bij je past? Bij SoulConnect draait daten niet om willekeurige swipes, maar om échte verbinding. Geen oppervlakkige chaos, geen eindeloos zoeken—maar matches die écht aansluiten bij jouw persoonlijkheid, interesses en levensstijl.
+  <div class="homepage">
 
-Met slimme matching, veilige profielen en een warme community creëren we een plek waar je jezelf kunt zijn.
-Of je nu op zoek bent naar vriendschap, een serieuze relatie of die ene speciale klik—jouw soulmate is misschien maar één connectie verwijderd.
-</p>
-    <button>Knopje</button>
-</div>
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="hero-inner">
+
+        <!-- TEXT LEFT -->
+        <div class="hero-text">
+          <h1>
+            <span class="line1">Vind liefde</span><br />
+            <span class="line2">op een nieuwe manier</span>
+          </h1>
+
+          <p class="subtext">
+            SoulConnect helpt je verbinden met mensen die écht bij je passen.
+            Swipe, match en chat — veilig, snel en super simpel.
+          </p>
+
+          <div class="cta-row">
+            <button class="btn primary" @click="goLogin">Inloggen</button>
+            <button class="btn ghost" @click="goRegister">Account aanmaken</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
 </template>
 
+<script setup lang="ts">
+import { useRouter } from "vue-router";
+const router = useRouter();
+
+const goLogin = () => router.push("/login");
+const goRegister = () => router.push("/register");
+</script>
+
 <style scoped>
-.side-card {
-  position: fixed;    
-  left: 20px;            /* 20px vanaf de linkerkant */
-  top: 20%;            /* 20px vanaf de bovenkant */
-  width: 25%;          /* Breedte van het kaartje */
-  
-  background-color: rgb(254, 127, 163) ;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-   z-index: 999;
+/* ---- GRADIENT BACKGROUND ---- */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 80px 40px;
+  background: linear-gradient(
+    115deg,
+    #ff3ea5,
+    #e359f9,
+    #8b63f6,
+    #4b7dfd
+  );
+  background-size: 200% 200%;
+  animation: gradientMove 10s ease infinite;
 }
 
+/* Sexy moving gradient */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ---- LAYOUT ---- */
+.hero-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4rem;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ---- LEFT SIDE TEXT ---- */
+.hero-text {
+  max-width: 600px;
+  color: white;
+}
+
+.hero-text h1 {
+  font-size: 4rem;
+  line-height: 1.1;
+  font-weight: 800;
+}
+
+.hero-text .line1 {
+  color: white;
+}
+.hero-text .line2 {
+  color: #ffe3ff;
+}
+
+.subtext {
+  font-size: 1.25rem;
+  margin: 1.5rem 0;
+  max-width: 500px;
+  opacity: 0.9;
+}
+
+/* ---- CTA BUTTONS ---- */
+.cta-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 14px 26px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.btn.primary {
+  background: white;
+  color: #e359f9;
+}
+
+.btn.primary:hover {
+  background: #f7f7f7;
+  transform: translateY(-3px);
+}
+
+.btn.ghost {
+  background: rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.4);
+  color: white;
+}
+
+.btn.ghost:hover {
+  background: rgba(255,255,255,0.35);
+  transform: translateY(-3px);
+}
 </style>
