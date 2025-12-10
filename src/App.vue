@@ -1,12 +1,12 @@
 <script setup lang="ts">
-const bg = "/love.png";
+// const bg = "/love.png";
 import Header from "./components/Header/header.vue";
 
 
 </script>
 
 <template>
-  <div class="background" :style="{ backgroundImage: `url(${bg})` }">
+  <div class="">
       <Header />
       <router-view />
   </div>
