@@ -59,6 +59,81 @@ const goRegister = () => router.push("/register");
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
+
+}
+
+/* ---- LAYOUT ---- */
+.hero-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 4rem;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ---- LEFT SIDE TEXT ---- */
+.hero-text {
+  max-width: 600px;
+  color: white;
+}
+
+.hero-text h1 {
+  font-size: 4rem;
+  line-height: 1.1;
+  font-weight: 800;
+}
+
+.hero-text .line1 {
+  color: white;
+}
+.hero-text .line2 {
+  color: #ffe3ff;
+}
+
+.subtext {
+  font-size: 1.25rem;
+  margin: 1.5rem 0;
+  max-width: 500px;
+  opacity: 0.9;
+}
+
+/* ---- CTA BUTTONS ---- */
+.cta-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn {
+  padding: 14px 26px;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.btn.primary {
+  background: white;
+  color: #e359f9;
+}
+
+.btn.primary:hover {
+  background: #f7f7f7;
+  transform: translateY(-3px);
+}
+
+.btn.ghost {
+  background: rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.4);
+  color: white;
+}
+
+.btn.ghost:hover {
+  background: rgba(255,255,255,0.35);
+  transform: translateY(-3px);
 }
 
 /* ---- LAYOUT ---- */
