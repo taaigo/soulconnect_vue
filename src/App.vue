@@ -6,6 +6,7 @@ import Header from "./components/Header/header.vue";
 </script>
 
 <template>
+  
   <div class="">
       <Header />
       <router-view />
@@ -13,14 +14,23 @@ import Header from "./components/Header/header.vue";
 
    
 </template>
-
+<style>
+body{
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+</style>
 <style scoped>
+
 .background {
   width: 100%;
   height: 100vh;
   background-size: cover;
   background-position: center;
 }
+
+
 </style>
 <!-- <template>
   <div id="app">
