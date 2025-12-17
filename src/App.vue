@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const bg = "/love.png";
-import Header from "./components/Header/header.vue";
+import Header from "./Components/Header/header.vue";
+import "./Stylesheets/styles.css"
 
 
 </script>
