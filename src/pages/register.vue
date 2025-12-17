@@ -5,22 +5,16 @@
 
       <form @submit.prevent="handleRegister">
         <label>Naam</label>
-        <input type="text" placeholder="Jouw naam" />
-
-        <label>Leeftijd</label>
-        <input type="number" placeholder="Leeftijd" />
+        <input v-model="name" type="text" placeholder="Jouw naam" />
 
         <label>Email</label>
-        <input type="email" placeholder="jij@example.com" />
+        <input v-model="email" type="email" placeholder="jij@example.com" />
 
         <label>Wachtwoord</label>
-        <input type="password" placeholder="********" />
+        <input v-model="password" type="password" placeholder="********" />
 
         <label>Bevestig wachtwoord</label>
         <input type="password" placeholder="********" />
-
-        <label>Bio</label>
-        <textarea placeholder="Vertel iets over jezelf..."></textarea>
 
         <button type="submit">Account aanmaken</button>
       </form>
@@ -34,8 +28,30 @@
 </template>
 
 <script setup>
-function handleRegister() {
-  console.log("Account aangemaakt!");
+import { API_URL } from "../../conf.json";
+import { ref } from "vue";
+
+const name = ref('');
+const password = ref('');
+const email = ref('');
+const confirm_password = ref('');
+
+async function handleRegister() {
+  const payload = {
+    name: name.value,
+    email: email.value,
+    password: password.value,
+    gender: 0,
+    target_gender: 1,
+  };
+
+  await fetch(`${API_URL}/user/register`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(payload),
+  });
 }
 </script>
 

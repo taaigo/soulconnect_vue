@@ -26,12 +26,25 @@
 
 <script setup lang="ts">
 import { ref } from "vue";
+import { API_URL } from "../../conf.json";
 
 const email = ref("");
 const password = ref("");
 
-function handleLogin() {
-  console.log("Login:", email.value, password.value);
+async function handleLogin() {
+console.log("test");
+  const payload = {
+    email: email.value,
+    password: password.value,
+  };
+
+  await fetch(`${API_URL}/user/login`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(payload),
+  });
 }
 </script>
 
